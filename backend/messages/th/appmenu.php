@@ -7,5 +7,8 @@ return [
     'Assignments'=>'การมอบหมาย',
     'Route'=>'เส้นทาง',
     'Permission'=>'การอนุญาต',
-    'Authentication'=>'การรับรอง'
+    'Authentication'=>'การรับรอง',
+    'Tools'=>'เครื่องมือ',
+    'Gii'=>'จีไอไอ',
+    'Debug'=>'ดีบัก',
 ]; 

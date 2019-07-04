@@ -8,7 +8,10 @@ return [
     'Assignments'=>'Assignments',
     'Route'=>'Route',
     'Permission'=>'Permission',
-    'Authentication'=>'Authentication'
+    'Authentication'=>'Authentication',
+    'Tools'=>'Tools',
+    'Gii'=>'Gii',
+    'Debug'=>'Debug',
 ];
 
 
