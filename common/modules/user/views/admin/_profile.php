@@ -20,17 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ],
 ]); ?>
-<div class="box box-primary">
-    <div class="box-header">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-title">
-                    <i class="fa fa-user"></i> <?= Html::encode($this->title); ?>
-                </div>
-            </div>
-        </div>
-    </div> 
-    <div class="box-body">
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title"><i class="fa fa-user"></i> <?= Html::encode($this->title); ?></h4>
+</div>
+<div class="modal-body">
     <?= $form->field($profile, 'firstname') ?>
     <?= $form->field($profile, 'lastname') ?>
     <?= $form->field($profile, 'public_email')->label(Yii::t('chanpan','Public Email')) ?>
@@ -51,10 +45,20 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="modal-footer">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <?= Html::submitButton(Yii::t('_user', 'Save'), ['class' => 'btn btn-primary btn-lg btn-lg btn-block']) ?>
+            <div class="row">
+                <div class="col-md-8">
+                    <?= Html::submitButton(Yii::t('_user', 'Save'), ['class' => 'btn btn-primary btn-block']) ?> 
+                </div>
+                <div class="col-md-4 text-left" style="margin-top: 8px;">
+                    <a href="#" data-dismiss="modal">Close</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+ 
 
 <?php ActiveForm::end(); ?>
  <?php  \richardfan\widget\JSRegister::begin([

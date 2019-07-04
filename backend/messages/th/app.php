@@ -56,4 +56,9 @@ return [
     'Discuss' => 'ความคิดเห็น',
     'Calendar'=>'ปฏิทิน',
     'EzForm is not allowed.' => 'EzForm ไม่อนุญาตให้ใช้งาน',
+    'First name'=>'ชื่อ',
+    'Last name'=>'นามสกุล',
+    'Tel'=>'เบอร์โทรศัพท์',
+    'Admin'=>'ผู้ดูแลระบบ',
+    'Active'=>'ใช้งานได้',
 ];
