@@ -41,6 +41,7 @@ class RegistrationController extends BaseRegistrationController
    
     public function actionRegister()
     {
+       // \appxq\sdii\utils\VarDumper::dump('ok');
         if (!$this->module->enableRegistration) {
             throw new NotFoundHttpException;
         }

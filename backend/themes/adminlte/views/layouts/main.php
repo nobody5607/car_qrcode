@@ -39,7 +39,7 @@ cpn\chanpan\assets\jquery_scroll\JqueryScrollAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="skin-blue layout-top-nav">
+    <body class="skin-blue sidebar-mini">
     <?php $this->beginBody() ?>
     <div class="wrapper">
         
@@ -49,10 +49,10 @@ cpn\chanpan\assets\jquery_scroll\JqueryScrollAsset::register($this);
         ) ?>
 
         <?php 
-            /*$this->render(
+            echo $this->render(
             'left.php',
             ['directoryAsset' => $directoryAsset]
-        )*/
+        )
         ?> 
          
         <?= $this->render(
@@ -61,9 +61,7 @@ cpn\chanpan\assets\jquery_scroll\JqueryScrollAsset::register($this);
         ) ?>
         <?php \appxq\sdii\widgets\CSSRegister::begin();?>
         <style>
-            .skin-blue .main-header .navbar {
-                background-color: #2196F3;
-            }
+            
         </style>
         <?php \appxq\sdii\widgets\CSSRegister::end();?>
         

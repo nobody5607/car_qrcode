@@ -48,6 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'username') ?>
 
                 <?= $form->field($model, 'new_password')->passwordInput() ?>
+                <?= $form->field($model, 'confirm_new_password')->passwordInput() ?>
 
                 <hr/>
 

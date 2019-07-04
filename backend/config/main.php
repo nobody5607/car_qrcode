@@ -102,8 +102,8 @@ return [
             
             'controllerMap' => [
 //                'admin' => 'common\modules\admin\controllers\AdminController',
-//                'settings' => 'common\modules\user\controllers\SettingsController',
-//                'registration' => 'common\modules\user\controllers\RegistrationController',
+                'settings' => 'common\modules\user\controllers\SettingsController',
+                'registration' => 'common\modules\user\controllers\RegistrationController',
 //                'security'=>'common\modules\user\controllers\SecurityController',
 //                'recovery'=>'common\modules\user\controllers\RecoveryController',
                 
@@ -116,6 +116,7 @@ return [
         'allowActions' => [
             //module, controller, action ที่อนุญาตให้ทำงานโดยไม่ต้องผ่านการตรวจสอบสิทธิ์
             'site/*',
+            'user/registration/register',
             //'admin/*',
         ]
     ],

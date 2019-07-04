@@ -79,7 +79,20 @@ $this->params['breadcrumbs'][] = $this->title;
                         'url' => ['/core/file-storage/avatar-upload']
                     ])
                 ?>
-
+                
+                <div class="form-group field-profile-bio">
+                    <label class="col-lg-3 control-label" for="profile-bio"><?= Yii::t('chanpan', 'Role') ?></label>
+                    <div class="col-lg-9">
+                        <?php
+                            $user_id = isset(Yii::$app->user->id) ? Yii::$app->user->id : '';
+                            $roles = \cpn\chanpan\classes\CNRoles::getAuthAssign($user_id);
+                            foreach ($roles as $k => $v) {
+                                echo "<div style='margin-top:10px;'>{$v}</div> ";
+                            }
+                        ?>  
+                    </div>
+                     
+                    </div>  
                 <div class="form-group">
                     <div class="col-lg-offset-3 col-lg-9">
                         <?= Html::submitButton(Yii::t('_user', 'Save'), ['class' => 'btn btn-block btn-success btn-lg']) ?>

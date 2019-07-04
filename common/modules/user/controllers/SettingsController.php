@@ -3,6 +3,7 @@ namespace common\modules\user\controllers;
 use dektrium\user\controllers\SettingsController as BaseSettingsController;
 use common\modules\user\models\Profile;
 use common\modules\user\models\User;
+use common\modules\admin\models\SettingsForm;
     
 class SettingsController extends BaseSettingsController{
     //put your code here
@@ -40,4 +41,25 @@ class SettingsController extends BaseSettingsController{
                     'model' => $model,
         ]);
     }
+    
+    //accoute
+    public function actionAccount() {
+        /** @var SettingsForm $model */
+        $model = \Yii::createObject(SettingsForm::className());
+        $event = $this->getFormEvent($model);
+
+        $this->performAjaxValidation($model);
+
+        $this->trigger(self::EVENT_BEFORE_ACCOUNT_UPDATE, $event);
+        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
+            \Yii::$app->session->setFlash('success', \Yii::t('user', 'Your account details have been updated'));
+            $this->trigger(self::EVENT_AFTER_ACCOUNT_UPDATE, $event);
+            return $this->refresh();
+        }
+
+        return $this->render('account', [
+                    'model' => $model,
+        ]);
+    }
+
 }

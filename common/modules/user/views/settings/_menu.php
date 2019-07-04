@@ -25,18 +25,6 @@ $user = Yii::$app->user->identity;
         </h3>
     </div>
     <div class="panel-body">
-        <?= UserMenu::widget() ?>
-        
-        <hr/>
-        <div>
-            <p><b><?= Yii::t('chanpan', 'Role')?></b></p>
-            <?php 
-                $user_id = isset(Yii::$app->user->id) ? Yii::$app->user->id : '';
-                $roles=\cpn\chanpan\classes\CNRoles::getAuthAssign($user_id);
-                foreach($roles as $k=>$v){
-                    echo "<div class='label label-success'>{$v}</div> ";
-                }
-             ?>
-        </div>
+        <?= UserMenu::widget() ?> 
     </div>
 </div>
