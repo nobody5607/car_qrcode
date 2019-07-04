@@ -12,4 +12,5 @@ return [
     'Gii'=>'จีไอไอ',
     'Debug'=>'ดีบัก',
     'Confirm new password'=>'ยืนยันรหัสผ่านใหม่',
+    'Telephone'=>'เบอร์โทรศัพท์',
 ]; 

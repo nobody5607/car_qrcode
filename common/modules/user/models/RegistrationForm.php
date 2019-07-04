@@ -10,7 +10,6 @@ class RegistrationForm extends BaseRegistrationForm{
     public $lastname;
     public $telephone;
     public $confirm_password;
-    public $tel;
     public function rules()
     {
          $user = $this->module->modelMap['User'];
@@ -42,10 +41,45 @@ class RegistrationForm extends BaseRegistrationForm{
         $labels['lastname'] = Yii::t('chanpan', 'นามสกุล'); 
 	
         $labels['confirm_password']=Yii::t('chanpan', 'ยืนยันรหัสผ่าน');
-        $labels['tel']=Yii::t('chanpan', 'เบอรโทรศัพท์');
+        $labels['telephone']=Yii::t('appmenu', 'Telephone');
        
         
         return $labels;
+    }
+    public function register()
+    { 
+        if (!$this->validate()) {
+            return false;
+        }
+        $user = Yii::createObject(User::className());
+        $user->setScenario('register');       
+
+        $user->setAttributes([
+            'email'    => $this->email,
+            'username' => $this->username,
+            'password' => $this->password
+            ]);
+            
+	/** @var Profile $profile */
+        $profile = \Yii::createObject(Profile::className());
+        $profile->setAttributes([
+            //'cid' => $this->cid,
+	    'name' => $this->firstname.' '.$this->lastname,
+	    'public_email' => $this->email,
+	    'gravatar_email' => $this->email,
+            'dob'=>' ',//$this->dob,
+            'firstname'=>$this->firstname,
+            'lastname'=>$this->lastname,             
+            'department'=>'00',//$this->department,
+            'position'=>'0',
+            'sitecode'=>'00',//$this->sitecode,
+            'tel'=> ' ',//$this->telephone
+             
+            
+        ]); 
+	$user->modelProfile = $profile;
+	
+        return $user->register();
     }
     
 }

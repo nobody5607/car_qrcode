@@ -49,19 +49,20 @@ $form = ActiveForm::begin([
                     <?= $form->field($model, 'password')->passwordInput() ?>
                     <?= $form->field($model, 'confirm_password')->passwordInput() ?>
                 <?php endif ?>
-                <div class="col-md-6" style="padding-left:0;">
-                    <?= $form->field($model, 'firstname') ?>
-                </div>
-                <div class="col-md-6" style="padding-right:0;">
-                    <?= $form->field($model, 'lastname') ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6" style="padding-left:0;">
+                            <?= $form->field($model, 'firstname') ?>
+                        </div>
+                        <div class="col-md-6" style="padding-right:0;">
+                            <?= $form->field($model, 'lastname') ?>
+                        </div>
+                    </div>
                 </div>
 		 
-                <?= $form->field($model, 'telephone')->widget(\yii\widgets\MaskedInput::className(), [
+                 <?= $form->field($model, 'telephone')->widget(\yii\widgets\MaskedInput::className(), [
                     'mask' => '9999999999',
                 ]) ?>
-                
-                 
-                
                 <?= Html::submitButton(Yii::t('user', 'Sign up'), ['class' => 'btn btn-success btn-block', 'id'=>'btnSubmit']) ?>
 
                 

@@ -104,16 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= Html::a(Yii::t('user', 'Don\'t have an account? Sign up!'), ['/user/registration/register']) ?>
                     </p>
                 <?php endif ?>
-                <?php 
-                echo '<div id="btnLanguage" class="navbar-text text-center" >';
-                echo \lajax\languagepicker\widgets\LanguagePicker::widget([
-                    'skin' => \lajax\languagepicker\widgets\LanguagePicker::SKIN_BUTTON,
-                    'size' => \lajax\languagepicker\widgets\LanguagePicker::SIZE_LARGE
-                ]);
-
-                echo '</div>';
-
-             ?>
+                
             </div>
             
             
