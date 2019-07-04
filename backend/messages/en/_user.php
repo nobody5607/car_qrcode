@@ -13,5 +13,8 @@ return [
     'Timezone' => 'Timezone',
     'Save' => 'Save',
     'Profile settings'=>'Profile settings',
+    'Tel'=>'Tel',
+    'Admin'=>'Admin',
+    'Active'=>'Active',
      
 ];

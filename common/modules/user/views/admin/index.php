@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'contentOptions' => ['style' => 'width:60px;text-align: center;'],
                 ],
                 [
-                    'header' => Yii::t('app', 'Admin'),
+                    'header' => Yii::t('_user', 'Admin'),
                     'value' => function ($model) use ($dataAdminsite) {
                         $data = \common\modules\user\classes\CNAuth::canAdmin($model->id);
                         if (!empty($data)) {
@@ -59,17 +59,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'attribute' => 'firstname',
-                    'label' => Yii::t('app', 'First name'),
+                    'label' => Yii::t('_user', 'First name'),
                     'value' => 'profile.firstname',
                 ],
                 [
                     'attribute' => 'lastname',
-                    'label' => Yii::t('app', 'Last name'),
+                    'label' => Yii::t('_user', 'Last name'),
                     'value' => 'profile.lastname',
                 ],
                 [
                     'attribute' => 'tel',
-                    'label' => Yii::t('app', 'Tel'),
+                    'label' => Yii::t('_user', 'Telephone number'),
                     'value' => 'profile.tel',
                 ],            
                 [
@@ -85,7 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     //'header' => 'Active',
-                    'label'=>Yii::t('app','Active'),
+                    'label'=>Yii::t('_user','Active'),
                     'value' => function ($model) {
 
                         if ($model->isConfirmed) {
