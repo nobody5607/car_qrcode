@@ -95,8 +95,9 @@ class SettingsForm extends Model
             'email'            => Yii::t('user', 'Email'),
             'username'         => Yii::t('user', 'Username'),
             'new_password'     => Yii::t('user', 'New password'),
-            'confirm_new_password'=> Yii::t('user', 'Confirm new password'),
+            'confirm_new_password'=> Yii::t('appmenu', 'Confirm new password'),
             'current_password' => Yii::t('user', 'Current password'),
+            //'confirm_new_password'=>Yii::t('appmenu','Confirm_new_password')
         ];
     }
 

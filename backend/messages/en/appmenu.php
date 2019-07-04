@@ -12,6 +12,7 @@ return [
     'Tools'=>'Tools',
     'Gii'=>'Gii',
     'Debug'=>'Debug',
+    'Confirm new password'=>'Confirm new password',
 ];
 
 

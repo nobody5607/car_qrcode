@@ -11,4 +11,5 @@ return [
     'Tools'=>'เครื่องมือ',
     'Gii'=>'จีไอไอ',
     'Debug'=>'ดีบัก',
+    'Confirm new password'=>'ยืนยันรหัสผ่านใหม่',
 ]; 

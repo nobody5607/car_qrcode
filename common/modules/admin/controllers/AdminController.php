@@ -2,7 +2,6 @@
 
 namespace common\modules\admin\controllers;
 
-use cpn\chanpan\classes\utils\CNProject;
 use dektrium\user\controllers\AdminController as BaseAdminController;
 use dms\aomruk\classese\Notify;
 use yii\helpers\Url;
@@ -14,10 +13,12 @@ use common\modules\user\models\Profile;
 use common\modules\user\models\User;
 use yii\data\ActiveDataProvider;
 use common\modules\user\models\RegistrationForm;
+use yii\web\NotFoundHttpException;
 
 class AdminController extends BaseAdminController {
     public function actionIndex()
     {
+            
         Url::remember('', 'actions-redirect');
         $searchModel  = \Yii::createObject(UserSearch::className());
         $dataProvider = $searchModel->search(\Yii::$app->request->get());
@@ -72,4 +73,6 @@ class AdminController extends BaseAdminController {
             'model'  => $model,
         ]);
     }
+    
+    
 }

@@ -12,6 +12,7 @@ use yii\helpers\Html;
 class AdminController extends BaseAdminController{
     public function actionIndex()
     {  
+       
         Url::remember('', 'actions-redirect');
         $searchModel  = \Yii::createObject(UserSearch::className());
         $dataProvider = $searchModel->search(\Yii::$app->request->get());
@@ -65,5 +66,6 @@ class AdminController extends BaseAdminController{
 
         return $this->redirect(['index']);
     }
+     
     
 }

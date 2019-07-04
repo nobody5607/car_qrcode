@@ -119,7 +119,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?=  ModalForm::widget([
     'id' => 'modal-user',
-    'size'=>'modal-lg',
+//    'size'=>'modal-lg',
     'options'=>[
         
     ]

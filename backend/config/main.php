@@ -21,18 +21,15 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@backend/themes/adminlte/views'
-                ]
-            ]
-        ],
-        'user' => [
-            'identityClass' => 'dektrium\user\models\User',
-            'enableAutoLogin' => true,
-            
-        ],
+//        'view' => [
+//            'theme' => [
+//                'pathMap' => [
+//                    '@app/views' => '@backend/themes/adminlte/views',
+//                   // '@dektrium/user/views' => '@app/views/user'
+//                ]
+//            ]
+//        ],
+        
         'session' => [ 
             'name' => 'advanced-backend',
         ],
@@ -49,24 +46,12 @@ return [
             'errorAction' => 'site/error',
         ], 
         
-        'languagepicker' => [
-            'class' => 'lajax\languagepicker\Component',
-            'languages' => ['en-US', 'th-TH'], // List of available languages (icons only)
-            'cookieName' => 'language', // Name of the cookie.
-            'expireDays' => 64, // The expiration time of the cookie is 64 days.
-            'callback' => function() {
-                if (!\Yii::$app->user->isGuest) {
-                    //		    $user = \Yii::$app->user->identity;
-                    //		    $user->language = \Yii::$app->language;
-                    //		    $user->save();
-                }
-            }
-        ],
+        
  
          
     ],
     'modules'=>[
-         'gridview' =>  [
+        'gridview' =>  [
                 'class' => '\kartik\grid\Module'
         ],
         'core' => [
@@ -75,13 +60,12 @@ return [
         'admin' => [
             'class' => 'mdm\admin\Module',
             'layout' => '@app/views/layouts/main.php',
-//            'layout' => 'left-menu',
             'controllerMap' => [
                 'role'=>'common\modules\admin\controllers\RoleController',
                 'user' => 'common\modules\admin\controllers\AdminController',
                 'assignment' => [
                     'class' => 'common\modules\admin\controllers\AssignmentController',
-                    //'userClassName' => 'dektrium\user\models\User', 
+                    'userClassName' => 'dektrium\user\models\User', 
                 ]
             ],
             
@@ -101,11 +85,11 @@ return [
             ],
             
             'controllerMap' => [
-//                'admin' => 'common\modules\admin\controllers\AdminController',
+                'admin' => 'common\modules\user\controllers\AdminController',
                 'settings' => 'common\modules\user\controllers\SettingsController',
                 'registration' => 'common\modules\user\controllers\RegistrationController',
-//                'security'=>'common\modules\user\controllers\SecurityController',
-//                'recovery'=>'common\modules\user\controllers\RecoveryController',
+                'security'=>'common\modules\user\controllers\SecurityController',
+                'recovery'=>'common\modules\user\controllers\RecoveryController',
                 
             ],
         ],

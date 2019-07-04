@@ -46,6 +46,7 @@ class SettingsController extends BaseSettingsController{
     public function actionAccount() {
         /** @var SettingsForm $model */
         $model = \Yii::createObject(SettingsForm::className());
+//        \appxq\sdii\utils\VarDumper::dump($model);
         $event = $this->getFormEvent($model);
 
         $this->performAjaxValidation($model);
