@@ -19,7 +19,6 @@ use <?= $generator->indexWidgetType === 'grid' ? "appxq\sdii\widgets\GridView" :
 use appxq\sdii\widgets\ModalForm;
 use appxq\sdii\helpers\SDNoty;
 use appxq\sdii\helpers\SDHtml;
-use Yii;
 
 /* @var $this yii\web\View */
 <?= !empty($generator->searchModelClass) ? "/* @var \$searchModel " . ltrim($generator->searchModelClass, '\\') . " */\n" : '' ?>
@@ -35,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
          <div class="pull-right">
              <?php 
                echo "<?= "?>Html::button(SDHtml::getBtnAdd(), ['data-url'=>Url::to(['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/create']), 'class' => 'btn btn-success btn-sm', 'id'=>'modal-addbtn-<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>']). ' ' .
-		      Html::button(SDHtml::getBtnDelete(), ['data-url'=>Url::to(['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/deletes']), 'class' => 'btn btn-danger btn-sm', 'id'=>'modal-delbtn-<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>', 'disabled'=>true]) 
+		      Html::button(SDHtml::getBtnDelete(), ['data-url'=>Url::to(['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/deletes']), 'class' => 'btn btn-danger btn-sm', 'id'=>'modal-delbtn-<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>', 'disabled'=>false]) 
              ?>
          </div>
     </div>
@@ -94,18 +93,18 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
 		'template' => '{view} {update} {delete}',
                 'buttons'=>[
                     'update'=>function($url, $model){
-                        return Html::a('<span class="fa fa-edit"></span> '.Yii::t('chanpan', 'Edit'), 
+                        return Html::a('<span class="fa fa-edit"></span> '.Yii::t('app', 'Edit'), 
                                     yii\helpers\Url::to(['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/update/'.$model->id]), [
-                                    'title' => Yii::t('chanpan', 'Edit'),
-                                    'class' => 'btn btn-warning btn-xs',
+                                    'title' => Yii::t('app', 'Edit'),
+                                    'class' => 'btn btn-primary btn-xs',
                                     'data-action'=>'update',
                                     'data-pjax'=>0
                         ]);
                     },
                     'delete' => function ($url, $model) {                         
-                        return Html::a('<span class="fa fa-trash"></span> '.Yii::t('chanpan', 'Delete'), 
+                        return Html::a('<span class="fa fa-trash"></span> '.Yii::t('app', 'Delete'), 
                                 yii\helpers\Url::to(['<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>/delete/'.$model->id]), [
-                                'title' => Yii::t('chanpan', 'Delete'),
+                                'title' => Yii::t('app', 'Delete'),
                                 'class' => 'btn btn-danger btn-xs',
                                 'data-confirm' => Yii::t('chanpan', 'Are you sure you want to delete this item?'),
                                 'data-method' => 'post',
@@ -134,7 +133,7 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
 </div>
 <?= "<?= " ?> ModalForm::widget([
     'id' => 'modal-<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>',
-    'size'=>'modal-lg',
+    //'size'=>'modal-lg',
 ]);
 ?>
 

@@ -32,7 +32,7 @@ use appxq\sdii\helpers\SDHtml;
 	'id'=>$model->formName(),
     ]); ?>
 
-    <div class="modal-header" style="background: #3c8dbc;color: #fff;">
+    <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="itemModalLabel"><i class="fa fa-table"></i> <?= Inflector::camel2words(StringHelper::basename($generator->modelClass)) ?></h4>
     </div>
@@ -44,10 +44,14 @@ use appxq\sdii\helpers\SDHtml;
     }
 } ?>
     </div>
-    <div class="modal-footer" style="background: #f3f3f3;">
-	<?= "<?= " ?>Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success btn-lg' : 'btn btn-primary btn-lg']) ?>
-	 
-    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <?= "<?= " ?>Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success btn-lg btn-block' : 'btn btn-primary btn-lg btn-block']) ?>
+	
+            </div>
+        </div>
+    </div> 
 
     <?= "<?php " ?>ActiveForm::end(); ?>
 

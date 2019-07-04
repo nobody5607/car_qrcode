@@ -27,7 +27,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','upload'],
+                        'actions' => ['logout', 'index','about','contact','edit'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -64,52 +64,31 @@ class SiteController extends Controller
          return $this->render('index');
  
     }
-    public function actionTest()
+    public function actionAbout()
     {
-        return $this->renderAjax('test');
+        return $this->render('about');
  
     }
-
-    /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin()
+    public function actionContact()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            $model->password = '';
-
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
+        return $this->render('contact');
+ 
     }
     
-    
-    public function actionUpload()
+    public function actionEdit()
     {
-         return $this->render('upload', [
-                 
-        ]);
-    }
+       $params = \Yii::$app->request->get('params', '');
+       $model = \common\models\Options::find()->where('label=:label',[
+           ':label'=>$params
+       ])->one();
+       if($model->load(Yii::$app->request->post()) && $model->save()){
+           return \cpn\chanpan\classes\CNMessage::getSuccess('Success');
+       }
+       return $this->renderAjax('edit',[
+           'model'=>$model,
+           'params'=>$params
+       ]);
+ 
+    } 
+ 
 }

@@ -13,4 +13,5 @@ return [
     'Debug'=>'ดีบัก',
     'Confirm new password'=>'ยืนยันรหัสผ่านใหม่',
     'Telephone'=>'เบอร์โทรศัพท์',
+    'Options'=>'ตั้งค่า',
 ]; 

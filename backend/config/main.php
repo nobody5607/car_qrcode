@@ -11,8 +11,11 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
+    'language' => 'en-US',
+    'timeZone' => 'Asia/Bangkok',
     'bootstrap' => ['log',
-        [
+        'backend\components\AppComponent',
+        [ 
             'class' => 'common\components\LanguageSelector',
             'supportedLanguages' => ['en-US', 'th-TH'], //กำหนดรายการภาษาที่ support หรือใช้ได้
         ]

@@ -14,6 +14,7 @@ return [
     'Debug'=>'Debug',
     'Confirm new password'=>'Confirm new password',
     'Telephone'=>'Telephone',
+    'Options'=>'Options',
 ];
 
 
