@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ?>
                 
                 <div class="form-group field-profile-bio">
-                    <label class="col-lg-3 control-label" for="profile-bio"><?= Yii::t('chanpan', 'Role') ?></label>
+                    <label class="col-lg-3 control-label" for="profile-bio"><?= Yii::t('appmenu', 'Role') ?></label>
                     <div class="col-lg-9">
                         <?php
                             $user_id = isset(Yii::$app->user->id) ? Yii::$app->user->id : '';

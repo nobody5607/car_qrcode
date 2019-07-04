@@ -28,11 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-body">
         <?php  Pjax::begin(['id'=>'user-grid-pjax']);?>
         <div class="table-responsive">
-            <?= kartik\grid\GridView::widget([
+            <?=            GridView::widget([
                 'id' => 'user-grid',
                 //'panelBtn' => Html::button(SDHtml::getBtnDelete(), ['data-url'=>Url::to(['/user/admin/deletes']), 'class' => 'btn btn-danger btn-sm', 'id'=>'modal-delbtn-user', 'disabled'=>true]),
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+                'tableOptions'=>['class'=>'table table-bordered'],
                 'columns' => [
 
                     [
@@ -70,9 +71,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'created_at',
                         'value' => function ($model) {
                             if (extension_loaded('intl')) {
-                                return Yii::t('user', '{0, date, MMMM dd, YYYY HH:mm}', [$model->created_at]);
+                                $date = Yii::t('user', '{0, date, MMMM dd, YYYY HH:mm}', [$model->created_at]);
+                                
                             } else {
-                                return date('Y-m-d G:i:s', $model->created_at);
+                                $date = date('Y-m-d G:i:s', $model->created_at);
+                                return appxq\sdii\utils\SDdate::mysql2phpDateTime($date);
                             }
                         },
 
@@ -80,9 +83,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     [
                         'class' => 'appxq\sdii\widgets\ActionColumn',
-                        'contentOptions' => ['style'=>'width:80px;text-align: center;'],
-                        'template' => '{update} {delete}',
+                        'contentOptions' => ['style'=>'width:250px;text-align: center;'],
+                        'template' => '{assign} {update} {delete} ',
+                        ///admin/assignment/view?id=1
                         'buttons'=>[
+                            'assign'=>function($url, $model){
+                                return Html::a('<span class="fa fa-shield"></span> '.Yii::t('chanpan', 'Role'), 
+                                            yii\helpers\Url::to(['/admin/assignment/view', 'id'=>$model->id]), [
+                                            'title' => Yii::t('user', 'Edit'),
+                                            'class' => 'btn btn-success btn-sm',
+                                            'data-action'=>'assign',
+                                            'data-pjax'=>0
+                                ]);
+                            },
                             'update'=>function($url, $model){
                                 return Html::a('<span class="fa fa-pencil"></span> '.Yii::t('chanpan', 'Edit'), 
                                             yii\helpers\Url::to(['/user/admin/update-profile/', 'id'=>$model->id]), [
@@ -91,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'data-action'=>'update',
                                             'data-pjax'=>0
                                 ]);
-                            },
+                            },        
                             'delete' => function ($url, $model) {
                                 if($model->id != \Yii::$app->user->getId()){
                                     return Html::a('<span class="fa fa-trash"></span> '.Yii::t('chanpan', 'Delete'), 
@@ -163,6 +176,9 @@ $('#user-grid-pjax').on('click', 'tbody tr td a', function() {
 
     if(action === 'update' || action === 'view') {
 	modalUser(url);
+    }else if(action === 'assign'){
+        window.open(url, '_blank');
+        return false;
     } else if(action === 'delete') {
 	yii.confirm('<?= Yii::t('chanpan', 'Are you sure you want to delete this item?')?>', function() {
 	    $.post(
