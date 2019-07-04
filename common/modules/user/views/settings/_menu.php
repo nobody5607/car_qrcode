@@ -20,9 +20,7 @@ $user = Yii::$app->user->identity;
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">           
-            <?= $user->profile->firstname . ' ' . $user->profile->lastname ?>
-        </h3>
+       <?= $user->profile->firstname . ' ' . $user->profile->lastname ?>
     </div>
     <div class="panel-body">
         <?= UserMenu::widget() ?> 
