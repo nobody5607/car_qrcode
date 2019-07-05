@@ -15,6 +15,7 @@ return [
     'Confirm new password'=>'Confirm new password',
     'Telephone'=>'Telephone',
     'Options'=>'Options',
+    'Informations'=>'Informations',
 ];
 
 

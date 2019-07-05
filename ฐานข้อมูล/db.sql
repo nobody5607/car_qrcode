@@ -11,7 +11,7 @@
  Target Server Version : 50714
  File Encoding         : 65001
 
- Date: 04/07/2019 23:21:55
+ Date: 05/07/2019 12:21:08
 */
 
 SET NAMES utf8mb4;
@@ -62,6 +62,7 @@ INSERT INTO `auth_item` VALUES ('/admin/*', 2, NULL, NULL, NULL, 1535696373, 153
 INSERT INTO `auth_item` VALUES ('/core/*', 2, NULL, NULL, NULL, 1535699352, 1535699352);
 INSERT INTO `auth_item` VALUES ('/debug/*', 2, NULL, NULL, NULL, 1562222244, 1562222244);
 INSERT INTO `auth_item` VALUES ('/gii/*', 2, NULL, NULL, NULL, 1535706951, 1535706951);
+INSERT INTO `auth_item` VALUES ('/informations/*', 2, NULL, NULL, NULL, 1562299552, 1562299552);
 INSERT INTO `auth_item` VALUES ('/options/*', 2, NULL, NULL, NULL, 1562243863, 1562243863);
 INSERT INTO `auth_item` VALUES ('/site/*', 2, NULL, NULL, NULL, 1562245386, 1562245386);
 INSERT INTO `auth_item` VALUES ('/user/*', 2, NULL, NULL, NULL, 1535697098, 1535697098);
@@ -92,6 +93,7 @@ INSERT INTO `auth_item_child` VALUES ('admin', '/admin/*');
 INSERT INTO `auth_item_child` VALUES ('admin', '/core/*');
 INSERT INTO `auth_item_child` VALUES ('admin', '/debug/*');
 INSERT INTO `auth_item_child` VALUES ('admin', '/gii/*');
+INSERT INTO `auth_item_child` VALUES ('admin', '/informations/*');
 INSERT INTO `auth_item_child` VALUES ('admin', '/options/*');
 INSERT INTO `auth_item_child` VALUES ('admin', '/site/*');
 INSERT INTO `auth_item_child` VALUES ('user', '/site/*');
@@ -136,6 +138,23 @@ INSERT INTO `file_storage_item` VALUES (106, 'fileStorage', 'http://shop.local/s
 INSERT INTO `file_storage_item` VALUES (107, 'fileStorage', 'http://storage.shop.local/source', '1/OuRcwvxrOLzLzvWR5QBNn6No1vd-2yf5.png', 'image/png', 4679, 'OuRcwvxrOLzLzvWR5QBNn6No1vd-2yf5', '::1', 1535700807);
 INSERT INTO `file_storage_item` VALUES (110, 'fileStorage', 'http://storage.exomethai.local/source', '1/FxbtooSVWmIcxSAvrkcYtZACnNSDvlk1.jpg', 'image/jpeg', 210392, 'FxbtooSVWmIcxSAvrkcYtZACnNSDvlk1', '::1', 1562218782);
 INSERT INTO `file_storage_item` VALUES (112, 'fileStorage', 'http://storage.exomethai.local/source', '1/8lHe0DJg_oKoIiMUdS06fwasOkLe2lGx.jpg', 'image/jpeg', 223823, '8lHe0DJg_oKoIiMUdS06fwasOkLe2lGx', '::1', 1562230810);
+
+-- ----------------------------
+-- Table structure for informations
+-- ----------------------------
+DROP TABLE IF EXISTS `informations`;
+CREATE TABLE `informations`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'ไตเติ้ล',
+  `detail` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'รายละเอียด',
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'รูปขนาดย่อย',
+  `rstat` int(1) DEFAULT NULL COMMENT 'สถานะ',
+  `create_by` bigint(20) DEFAULT NULL COMMENT 'สร้างโดย',
+  `create_date` datetime(0) DEFAULT NULL COMMENT 'สร้างเมื่อ',
+  `update_by` bigint(20) DEFAULT NULL COMMENT 'แก้ไขโดย',
+  `update_date` datetime(0) DEFAULT NULL COMMENT 'แก้ไขเมื่อ',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for menu
@@ -193,13 +212,15 @@ CREATE TABLE `options`  (
   `label` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'Label',
   `value` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT 'Value',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of options
 -- ----------------------------
 INSERT INTO `options` VALUES (1, 'about', '<p><strong>National Clinical Research Center (nCRC):&nbsp;Free Online Research Tools</strong></p><p><br></p><p><strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:</p><p><strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:<strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:<strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:</p><p><br></p>');
-INSERT INTO `options` VALUES (2, 'contact', '<p>Contacts</p>');
+INSERT INTO `options` VALUES (2, 'contact', '<p><strong>National Clinical Research Center (nCRC):&nbsp;Free Online Research Tools</strong></p><p><br></p><p><strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:</p><p><strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:<strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:<strong>nCRC</strong> serves as an online research tools for researcher around the world. It is not merely a Clinical Trial Management System (CTMS) as it integrates all essential tools into a unified working environment. The nCRC can also be used to managed any types of research ranging from a very simple one such as a quick survey to a very complex multi-national randomized controlled trial. According to an aim of the Thai government&#39;s mission on having a unified system for clinical research and left no researcher behind, the first version of this CTMS was launched in the middle of 2018. It was then named the National Clinical Research Center (nCRC) accordingly. Any researcher can apply for an account and own the online clinical research tools. The nCRC will be forever free to be used for research purposes and under the DIY (do it yourself) manner. Additional services, if required, can be arranged with some service costs. The <a href=\"https://storage.work.ncrc.in.th/ezform/editor-upload/5b61bf9c043f2.pdf\" target=\"_blank\">nCRC QuickGuide_20180802.pdf</a> summarizes steps of using the nCRC as shown below:</p>');
+INSERT INTO `options` VALUES (3, 'initial_name_app', 'APP');
+INSERT INTO `options` VALUES (4, 'name_app', 'App Name');
 
 -- ----------------------------
 -- Table structure for profile
@@ -292,7 +313,7 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', 'chanpan.nuttaphon1993@gmail.com', '$2y$12$obnECeQ6R8r.lamu.Kdmo.S2OTh1Dh9TvsvfSpGQfpBChgFs3Tz6K', 'KSwmb0yFT6Jf14f82pSAnAedCN44uzAQ', 1535696234, NULL, NULL, '::1', 1535696234, 1535696234, 0, 1562257254);
+INSERT INTO `user` VALUES (1, 'admin', 'chanpan.nuttaphon1993@gmail.com', '$2y$12$obnECeQ6R8r.lamu.Kdmo.S2OTh1Dh9TvsvfSpGQfpBChgFs3Tz6K', 'KSwmb0yFT6Jf14f82pSAnAedCN44uzAQ', 1535696234, NULL, NULL, '::1', 1535696234, 1535696234, 0, 1562302174);
 INSERT INTO `user` VALUES (2, 'user', 'user@gmail.com', '$2y$12$XQqiA43J1Z9/yIfWc4N9lexmEpDatvryHr15PQ1f1udsM8ipsdldi', 'SIMHVxx-zsO9MyC9gN_ZxsolYakw9_5G', 1562226672, NULL, NULL, '::1', 1562226673, 1562226673, 0, 1562227547);
 INSERT INTO `user` VALUES (3, 'user2', 'user2@gmail.com', '$2y$12$DTf.7SbmW8wmbdDBfB70deB6jIFRZrdU094K/VDUOF0d8Td2C0lRe', '_-aO2DARP_wh1gyK_XsE-DASfU5KkWDn', 1562228852, NULL, NULL, '::1', 1562228852, 1562228852, 0, NULL);
 

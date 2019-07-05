@@ -58,5 +58,6 @@ return [
     'EzForm is not allowed.' => 'EzForm ไม่อนุญาตให้ใช้งาน',
     'First name'=>'ชื่อ',
     'Last name'=>'นามสกุล',
+    'Informations'=>'ประชาสัมพันธ์',
     
 ];

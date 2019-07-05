@@ -19,27 +19,22 @@ use cpn\chanpan\widgets\CNMenu;
     }
  
     ?>
-<?php 
- 
-    
-?> 
 <header class="main-header">
-
-    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?php 
+        $initialNameApp = isset(\Yii::$app->params['initial_name_app'])?\Yii::$app->params['initial_name_app']:'App';
+        $nameApp = isset(\Yii::$app->params['name_app'])?\Yii::$app->params['name_app']:'App';
+    ?>
+    <?= Html::a('<span class="logo-mini">'.$initialNameApp.'</span><span class="logo-lg">' . $initialNameApp . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-fixed-top" role="navigation"> 
     <div class="navbar-header">
       <?= AppComponent::slideToggleRight()?>  
       <?= AppComponent::slideToggleLeft()?>
-        <a class="navbar-brand" href="#"><?= Yii::$app->name; ?></a>  
+        <a class="navbar-brand" href="#"><?= $nameApp; ?></a>  
     </div>
 <div class="container-fluid">
     <div class="collapse navbar-collapse" id="cnNavbar">       
-      <?= yii\bootstrap\Nav::widget([
-          'options'=>['class'=>'nav navbar-nav'],
-          'items'=> AppComponent::menuLeft($moduleID, $controllerID, $actionID),
-          'encodeLabels'=>FALSE
-      ])?>
+      
         <?php 
         echo yii\bootstrap\Nav::widget([
                 'options'=>['class'=>'nav navbar-nav  navbar-right'],

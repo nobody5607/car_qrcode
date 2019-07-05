@@ -58,5 +58,6 @@ return [
     'EzForm is not allowed.' => 'EzForm is not allowed.',
     'First name'=>'First name',
     'Last name'=>'Last name',
+    'Informations'=>'Informations',
     
 ];

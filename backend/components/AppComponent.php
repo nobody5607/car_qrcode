@@ -19,12 +19,15 @@ class AppComponent extends Component {
         $controllerId = isset(Yii::$app->controller->id) ? Yii::$app->controller->id : '';
         $actionId = isset(Yii::$app->controller->action->id) ? Yii::$app->controller->action->id : '';
         $viewId = \Yii::$app->request->get('id', '');
+         
         $navbar = [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Home', 'icon' => 'home', 'url' => ['/']],
-                    ['label' => 'About', 'icon' => '', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'icon' => '', 'url' => ['/site/contact']],
+                    ['label' => \Yii::t('appmenu','Home'), 'icon' => 'home', 'url' => ['/']],
+                    ['label' => \Yii::t('appmenu','About'), 'icon' => '', 'url' => ['/site/about']],
+                    ['label' => \Yii::t('appmenu','Contact'), 'icon' => '', 'url' => ['/site/contact']],
+                    ['label' => \Yii::t('appmenu','Informations'), 'icon' => '', 'url' => ['/informations']],
+                    
                     [
                         'label' => Yii::t('appmenu','Member Management'), 
                         'icon' => 'users', 'url' => ['/user/admin/index'],

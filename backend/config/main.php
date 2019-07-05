@@ -104,6 +104,7 @@ return [
             //module, controller, action ที่อนุญาตให้ทำงานโดยไม่ต้องผ่านการตรวจสอบสิทธิ์
             'site/*',
             'user/registration/register',
+            'informations/index',
             //'admin/*',
         ]
     ],
