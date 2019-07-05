@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use common\components\AppComponent;
+use backend\components\AppComponent;
 use cpn\chanpan\widgets\CNMenu;
 ?>
 <?php

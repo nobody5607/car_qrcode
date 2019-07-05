@@ -59,5 +59,7 @@ return [
     'First name'=>'ชื่อ',
     'Last name'=>'นามสกุล',
     'Informations'=>'ประชาสัมพันธ์',
+    'Passwords do not match'=>'รหัสผ่านไม่ตรงกัน',
+    'Confirm Password'=>'ยืนยันรหัสผ่าน',
     
 ];

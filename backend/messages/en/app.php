@@ -59,5 +59,7 @@ return [
     'First name'=>'First name',
     'Last name'=>'Last name',
     'Informations'=>'Informations',
+    'Passwords do not match'=>'Passwords do not match',
+    'Confirm Password'=>'Confirm Password',
     
 ];

@@ -25,7 +25,7 @@ class RegistrationForm extends BaseRegistrationForm{
          $rules[] = ['password', 'string', 'min' => 6, 'max' => 72];
  
          $rules[] = ['confirm_password', 'required'];
-         $rules[] = ['confirm_password', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('app','รหัสผ่านไม่ตรงกัน')];
+         $rules[] = ['confirm_password', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('app','Passwords do not match')];
          
          $rules[] = ['firstname', 'required'];
          $rules[] = ['lastname', 'required'];
@@ -37,10 +37,10 @@ class RegistrationForm extends BaseRegistrationForm{
     public function attributeLabels()
     {
         $labels = parent::attributeLabels(); 
-        $labels['firstname'] = Yii::t('chanpan', 'ชื่อ');
-        $labels['lastname'] = Yii::t('chanpan', 'นามสกุล'); 
+        $labels['firstname'] = Yii::t('app', 'First name');
+        $labels['lastname'] = Yii::t('app', 'Last name'); 
 	
-        $labels['confirm_password']=Yii::t('chanpan', 'ยืนยันรหัสผ่าน');
+        $labels['confirm_password']=Yii::t('app', 'Confirm Password');
         $labels['telephone']=Yii::t('appmenu', 'Telephone');
        
         

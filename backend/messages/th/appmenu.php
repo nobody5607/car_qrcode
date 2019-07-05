@@ -15,4 +15,9 @@ return [
     'Telephone'=>'เบอร์โทรศัพท์',
     'Options'=>'ตั้งค่า',
     'Informations'=>'ประชาสัมพันธ์',
+    'About'=>'เกี่ยวกับโครงการ',
+    'Contact'=>'ติดต่อเรา',
+    'Clinical Data Management'=>'จัดการข้อมูลคลีนิก',
+    'Sign Up'=>'สมัครสมาชิก',
+    'Login'=>'เข้าสู่ระบบ',
 ]; 
