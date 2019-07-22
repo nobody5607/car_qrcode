@@ -59,6 +59,7 @@ class AppComponent extends Component {
                             'items' => [
                                 //options
                                 ['label' => Yii::t('appmenu','Options'), 'icon' => 'cog', 'url' => ['/options'],],
+                                ['label' => Yii::t('appmenu','Skin'), 'icon' => 'cog', 'url' => ['/skin'],],
                                 ['label' => Yii::t('appmenu','Gii'), 'icon' => 'file-code-o', 'url' => ['/gii'],],
                                 ['label' => Yii::t('appmenu','Debug'), 'icon' => 'dashboard', 'url' => ['/debug'],]
                             ],

@@ -13,10 +13,11 @@ class CNMessage {
         return \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
     }
 
-    public static function getSuccess($message) {
+    public static function getSuccess($message, $data=[]) {
         self::JsonResponses();
          
         $result = [
+            'data'=>$data,
             'status' => 'success',
             'action' => 'create',
             'message' => \cpn\chanpan\helpers\CNHtml::getMsgSuccess() . Yii::t('chanpan', $message),

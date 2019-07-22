@@ -28,6 +28,7 @@ cpn\chanpan\assets\jquery_scroll\JqueryScrollAsset::register($this);
     \backend\themes\adminlte\assets\AdminLteAsset::register($this);
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+    $skin = isset(Yii::$app->params['skin'])?Yii::$app->params['skin']:'skin-blue';
     ?>
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -39,7 +40,7 @@ cpn\chanpan\assets\jquery_scroll\JqueryScrollAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="skin-blue sidebar-mini">
+    <body class="<?= $skin?> sidebar-mini">
     <?php $this->beginBody() ?>
     <div class="wrapper">
         
