@@ -71,9 +71,9 @@ common/config/main-local.php ```**db connect```
 common/config/params-local.php
 ```
 return [
-    'storageUrl'=>'http://storage.nhis.dev/',
-    'backendUrl'=>'http://backend.nhis.dev/',
-    'frontendUrl'=>'http://nhis.dev/',
+    'storageUrl'=>'http://storage.chanpan.local/',
+    'backendUrl'=>'http://backend.chanpan.local/',
+    'frontendUrl'=>'http://chanpan.local/',
 ];
 
 ```
