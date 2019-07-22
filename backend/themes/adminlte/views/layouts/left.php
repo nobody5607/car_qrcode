@@ -3,15 +3,24 @@
     <div class="slimScrollDiv" >
         <section class="sidebar" >
             <!-- Sidebar user panel -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            <?php if(!Yii::$app->user->isGuest):?>
+            <?php 
+                $fullName = isset(Yii::$app->user->identity->profile->name) ? Yii::$app->user->identity->profile->name : 'No Name';
+                $storageUrl = isset(\Yii::$app->params['storageUrl'])?\Yii::$app->params['storageUrl']:'';
+                $img = isset(Yii::$app->user->identity->profile->avatar_path)?Yii::$app->user->identity->profile->avatar_path:'';
+
+            ?>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                      <img src="<?= "{$storageUrl}/source/{$img}";?>" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                      <p><?= $fullName; ?></p>
+                      <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
                 </div>
-                <div class="pull-left info">
-                    <p>Alexander Pierce</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
+            <?php endif; ?>
+            
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">

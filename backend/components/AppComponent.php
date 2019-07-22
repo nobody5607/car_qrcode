@@ -12,6 +12,7 @@ class AppComponent extends Component {
         parent::init(); 
         $params = \backend\modules\core\classes\CoreQuery::getOptionsParams();
         \Yii::$app->params = \yii\helpers\ArrayHelper::merge(\Yii::$app->params, $params);
+        Yii::setAlias('@storageUrl',  \Yii::$app->params['storageUrl']);
         //\appxq\sdii\utils\VarDumper::dump($params);
     }
     public static function navbarLeft() {
@@ -24,9 +25,10 @@ class AppComponent extends Component {
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => \Yii::t('appmenu','Home'), 'icon' => 'home', 'url' => ['/']],
-                    ['label' => \Yii::t('appmenu','About'), 'icon' => '', 'url' => ['/site/about']],
-                    ['label' => \Yii::t('appmenu','Contact'), 'icon' => '', 'url' => ['/site/contact']],
-                    ['label' => \Yii::t('appmenu','Clinical Data Management'), 'icon' => '', 'url' => ['/'], 'visible' => !Yii::$app->user->isGuest],
+                    ['label' => \Yii::t('appmenu','About'), 'icon' => 'user', 'url' => ['/site/about']],
+                    ['label' => \Yii::t('appmenu','Contact'), 'icon' => 'phone-square', 'url' => ['/site/contact']],
+                    ['label' => \Yii::t('appmenu','Informations'), 'icon' => 'microphone', 'url' => ['/informations/index']],
+//                    ['label' => \Yii::t('appmenu','Clinical Data Management'), 'icon' => '', 'url' => ['/'], 'visible' => !Yii::$app->user->isGuest],
                     
                     [
                         'label' => Yii::t('appmenu','Member Management'), 
@@ -71,14 +73,17 @@ class AppComponent extends Component {
         return $navbar;
     }
     public static function menuRight(){
+        $fullName = isset(Yii::$app->user->identity->profile->name) ? Yii::$app->user->identity->profile->name : 'No Name';
+        $storageUrl = isset(\Yii::$app->params['storageUrl'])?\Yii::$app->params['storageUrl']:'';
+        $img = isset(Yii::$app->user->identity->profile->avatar_path)?Yii::$app->user->identity->profile->avatar_path:'';
         $items = [            
             [
-                'label' => isset(Yii::$app->user->identity->profile->name) ? Yii::$app->user->identity->profile->name : '',
+                'label' =>"<img src='{$storageUrl}/source/{$img}' class='user-image'> ".$fullName,
                 'visible' => !Yii::$app->user->isGuest,
                 'items' => [
-                     ['label' => '<i class="fa fa-user"></i> '.Yii::t('chanpan','User Profile'), 'url' => ['/user/settings/profile']],
+                     ['label' => '<i class="fa fa-user"></i> '.Yii::t('appmenu','User Profile'), 'url' => ['/user/settings/profile']],
                      '<li class="divider"></li>', 
-                     ['label' => '<i class="fa fa-sign-out"></i> '.Yii::t('chanpan','Logout'), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']],
+                     ['label' => '<i class="fa fa-sign-out"></i> '.Yii::t('appmenu','Logout'), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']],
                 ],
             ],
             ['label' => "<i class='fa fa-sign-in'></i> ".Yii::t('appmenu','Sign Up'), 'url' => ['/user/register'], 'visible' => Yii::$app->user->isGuest],

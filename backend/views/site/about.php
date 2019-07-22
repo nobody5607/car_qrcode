@@ -1,9 +1,15 @@
-<?php if (Yii::$app->user->can('admin')): ?>
+<?php 
+    $this->title = Yii::t('appmenu', 'About');
+    $this->params['breadcrumbs'][] = $this->title;
+?>
+<?php if (Yii::$app->user->can('edit_about')): ?>
     <a href="#" class="btn btn-primary btnEdit" data-url="<?= yii\helpers\Url::to(['/site/edit?params=about']) ?>"><i class="fa fa-pencil"></i></a>
 <?php endif; ?>
 <div class="text-muted">
     <?= isset(\Yii::$app->params['about']) ? \Yii::$app->params['about'] : '' ?> 
 </div>
+    
+<?php if (Yii::$app->user->can('edit_about')): ?>    
 <?=
 \appxq\sdii\widgets\ModalForm::widget([
     'id' => 'modal-options',
@@ -33,3 +39,4 @@
     }
 </script>
 <?php \richardfan\widget\JSRegister::end(); ?>
+<?php endif; ?>

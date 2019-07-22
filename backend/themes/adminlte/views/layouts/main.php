@@ -39,6 +39,9 @@ cpn\chanpan\assets\jquery_scroll\JqueryScrollAsset::register($this);
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
+        
+        <?php $baseUrl = $this->theme->baseUrl;?>
+        <link rel="stylesheet" href="<?= $baseUrl;?>/css/custom.css"/>
     </head>
     <body class="<?= $skin?> sidebar-mini">
     <?php $this->beginBody() ?>

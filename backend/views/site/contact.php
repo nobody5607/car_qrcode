@@ -1,8 +1,14 @@
-<?php if(Yii::$app->user->can('admin')):?>
+<?php 
+    $this->title = Yii::t('appmenu', 'Contact');
+    $this->params['breadcrumbs'][] = $this->title;
+?>
+<?php if (Yii::$app->user->can('edit_contact')): ?> 
     <a href="#" class="btn btn-primary btnEdit" data-url="<?= yii\helpers\Url::to(['/site/edit?params=contact'])?>"><i class="fa fa-pencil"></i></a>
 <?php endif; ?>
 <?= isset(\Yii::$app->params['contact'])?\Yii::$app->params['contact']:''?> 
 
+    
+<?php if (Yii::$app->user->can('edit_contact')): ?>     
 <?=  \appxq\sdii\widgets\ModalForm::widget([
     'id' => 'modal-options',
     'options'=>['tabindex' => false], 
@@ -29,3 +35,4 @@ function modalOption(url) {
 }
 </script>
 <?php  \richardfan\widget\JSRegister::end(); ?>
+<?php endif; ?>

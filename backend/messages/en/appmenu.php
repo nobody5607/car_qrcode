@@ -21,6 +21,9 @@ return [
     'Clinical Data Management'=>'Clinical Data Management',
     'Sign Up'=>'Sign Up',
     'Login'=>'Login',
+    'User Profile'=>'User Profile',
+    'Logout'=>'Logout',
+    'Home'=>'Home',
 ];
 
 

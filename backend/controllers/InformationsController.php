@@ -46,8 +46,10 @@ class InformationsController extends Controller
 
     public function beforeAction($action) {
 	if (parent::beforeAction($action)) {
-	    if (in_array($action->id, array('create', 'update'))) {
-		
+	    if (in_array($action->id, ['create', 'update','delete'])) {
+                if(!Yii::$app->user->can('manage_information')){
+                    return $this->redirect(['/site/index']);
+                }
 	    }
 	    return true;
 	} else {
